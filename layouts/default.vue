@@ -2,7 +2,9 @@
 
 <template>
 	<div class="body_container">
+		<HeaderCustom></HeaderCustom>
 		<slot></slot>
+		<FooterCustom></FooterCustom>
 	</div>
 </template>
 

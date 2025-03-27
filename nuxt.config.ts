@@ -1,5 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	vite: {
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: "@use '@/assets/styles/main.scss';",
+				},
+			},
+		},
+	},
 	imports: {
 		dirs: ['types/constants'],
 		presets: [
@@ -19,19 +28,21 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
-			title: 'Title',
+			title: 'Психолог Yana Babura – Помощь и консультации онлайн | Познань',
 			meta: [
 				{ charset: 'utf-8' },
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 				{
 					hid: 'description',
 					name: 'description',
-					content: 'тут должно быть описание сайта и услуг',
+					content:
+						'Психологические консультации онлайн и офлайн. Работаем с тревожностью, стрессом, самооценкой.Познань',
 				},
 				{
 					hid: 'keywords',
 					name: 'keywords',
-					content: 'тут должны быть ключевые слова',
+					content:
+						'психолог,психолог онлайн, психолог Познань, консультация психолога, семейный психолог, психолог для детей, стресс, депрессия, тревога, панические атаки, проблемы в отношениях, повышение самооценки, кризис, эмоциональное выгорание, фобии, коучинг, психотерапевт, психоанализ, когнитивно-поведенческая терапия, помощь при разводе, психолог для подростков, личностный рост',
 				},
 			],
 			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -40,5 +51,5 @@ export default defineNuxtConfig({
 	plugins: [{ src: '~/plugins/aos.js', mode: 'client' }],
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxt/eslint', '@nuxt/icon'],
+	modules: ['@nuxt/eslint', 'nuxt-icons'],
 });
