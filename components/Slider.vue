@@ -2,6 +2,16 @@
 // Import Swiper Vue.js components and Swiper styles
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
+import 'swiper/css/navigation'; // Добавляем стили для кнопок навигации
+import { Navigation, Autoplay } from 'swiper/modules'; // Импорт модулей
+interface Review {
+	title: string;
+	desc: string;
+	stars: number;
+}
+const props = defineProps({
+	reviews: Array<Review>,
+});
 
 // Import Swiper types
 import type { Swiper as SwiperInstance } from 'swiper';
@@ -17,29 +27,59 @@ const onSlideChange = () => {
 </script>
 <template>
 	<swiper
-		:modules="[Autoplay]"
-		:slides-per-view="5"
-		:autoplay="{ delay: 1000, disableOnInteraction: false }"
+		:modules="[Navigation, Autoplay]"
+		:slides-per-view="1"
+		:autoplay="{ delay: 6000, disableOnInteraction: false }"
 		:space-between="50"
+		:pagination="true"
+		:grabCursor="true"
+		:loop="true"
 		@swiper="onSwiper"
 		@slideChange="onSlideChange"
-	>
-		<swiper-slide>Slide 1</swiper-slide>
-		<swiper-slide>Slide 2</swiper-slide>
-		<swiper-slide>Slide 3</swiper-slide>
-		<swiper-slide>Slide 4</swiper-slide>
-		<swiper-slide>Slide 5</swiper-slide>
-		<swiper-slide>Slide 6</swiper-slide>
-		<swiper-slide>Slide 7</swiper-slide>
-		<swiper-slide>Slide 8</swiper-slide>
-		<swiper-slide>Slide 9</swiper-slide>
-		<swiper-slide>Slide 10</swiper-slide>
-		<swiper-slide>Slide 11</swiper-slide>
-		<swiper-slide>Slide 12</swiper-slide>
-		<swiper-slide>Slide 13</swiper-slide>
+		class="custom-swiper"
+		><swiper-slide v-for="item in reviews">
+			<CardReviewer
+				:title="item.title"
+				:desc="item.desc"
+				:stars="item.stars"
+			></CardReviewer>
+		</swiper-slide>
 	</swiper>
 </template>
 
 <style scoped lang="scss">
-/* You can adjust the container styling as needed */
+.custom-swiper {
+	position: relative;
+	width: 100%;
+}
+.swiper {
+	display: flex;
+}
+.swiper-button-prev,
+.swiper-button-next {
+	color: #5b3128 !important; // Цвет стрелок
+	background: rgba(255, 255, 255, 0.8); // Фон стрелок
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.swiper-button-prev {
+	left: -50px;
+}
+
+.swiper-button-next {
+	right: -50px;
+}
+/* You can adjust the container
+ styling as needed */
 </style>

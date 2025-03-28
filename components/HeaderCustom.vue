@@ -2,11 +2,11 @@
 
 <template>
 	<header>
-		<div class="wrap_logo">
+		<div class="wrap_logo" data-aos="fade-right">
 			<nuxt-icon name="Logo" filled></nuxt-icon>
 			<p>Yana Babura</p>
 		</div>
-		<button class="button_header">Записаться</button>
+		<button class="button_header" data-aos="fade-left">Записаться</button>
 	</header>
 </template>
 
