@@ -3,6 +3,7 @@ const props = defineProps({
 	title: String,
 	desc: Array,
 	icon: String,
+	button: Boolean,
 });
 </script>
 
@@ -11,10 +12,24 @@ const props = defineProps({
 		<nuxt-icon :name="icon" filled v-if="icon" class="icon_card"></nuxt-icon>
 		<h2>{{ title }}</h2>
 		<li v-for="item in desc">{{ item }}</li>
+		<button class="button_call" v-if="button">ЗАПИСАТЬСЯ</button>
 	</div>
 </template>
 
 <style scoped lang="scss">
+.button_call {
+	padding: 1.8rem 4rem;
+	border-radius: 1rem;
+	background: #b87869;
+	color: #fff;
+	text-align: center;
+	font-family: Jost;
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 3rem; /* 214.286% */
+	margin-top: 2rem;
+}
 .card_servise {
 	width: 100%;
 	display: flex;

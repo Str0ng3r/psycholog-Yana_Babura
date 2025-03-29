@@ -4,6 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation'; // Добавляем стили для кнопок навигации
 import { Navigation, Autoplay } from 'swiper/modules'; // Импорт модулей
+interface Review {
+	title: string;
+	desc: string;
+	stars: number;
+}
+const props = defineProps({
+	reviews: Array<Review>,
+});
+
 // Import Swiper types
 import type { Swiper as SwiperInstance } from 'swiper';
 
@@ -28,53 +37,19 @@ const onSlideChange = () => {
 		@swiper="onSwiper"
 		@slideChange="onSlideChange"
 		class="custom-swiper"
-	>
-		<swiper-slide
-			><img
-				src="../assets/img/sertif0.JPG"
-				alt="Sertificate"
-				class="img_sertificate"
-		/></swiper-slide>
-		<swiper-slide
-			><img
-				src="../assets/img/sertif2.JPG"
-				alt="Sertificate"
-				class="img_sertificate"
-		/></swiper-slide>
-		<swiper-slide
-			><img
-				src="../assets/img/sertif1.JPG"
-				alt="Sertificate"
-				class="img_sertificate"
-		/></swiper-slide>
-		<swiper-slide
-			><img
-				src="../assets/img/sertif3.JPG"
-				alt="Sertificate"
-				class="img_sertificate"
-		/></swiper-slide>
-		<swiper-slide
-			><img
-				src="../assets/img/sertif6.JPG"
-				alt="Sertificate"
-				class="img_sertificate"
-		/></swiper-slide>
-		<swiper-slide
-			><img
-				src="../assets/img/sertif5.JPG"
-				alt="Sertificate"
-				class="img_sertificate"
-		/></swiper-slide>
+		><swiper-slide v-for="item in reviews">
+			<CardReviewer
+				:title="item.title"
+				:desc="item.desc"
+				:stars="item.stars"
+			></CardReviewer>
+		</swiper-slide>
 	</swiper>
 </template>
 
 <style scoped lang="scss">
 .custom-swiper {
 	position: relative;
-	width: 100%;
-}
-.img_sertificate {
-	height: 100%;
 	width: 100%;
 }
 .swiper {

@@ -70,6 +70,23 @@ const methods = [
 	'Трансформационная игра для женщин “Важное о себе” Онлайн и очно в центре Познани',
 	'Трансформационная игра “Лила” очно в Познани.В приятной и спокойной атмосфере',
 ];
+const serviceCards = [
+	{
+		title: 'Первичная диагностическая сессия 20 минут',
+		desc: ['БЕСПЛАТНО'],
+		icon: 'first_services',
+	},
+	{
+		title: 'Индивидуальная сессия очно или онлайн 60 минут',
+		desc: ['180 zł'],
+		icon: 'second_services',
+	},
+	{
+		title: 'Пакет из 5 сессий со скидкой - 5% (5 сессий по 60мин)',
+		desc: ['850 zł'],
+		icon: 'three_services',
+	},
+];
 </script>
 
 <template>
@@ -150,7 +167,7 @@ const methods = [
 		<div class="section_reviews__wrap_text">
 			<h2>Что говорят мои клиенты:</h2>
 			<div class="wrap_for_slider">
-				<Slider :reviews="reviewsArray"> </Slider>
+				<SliderCards :reviews="reviewsArray"> </SliderCards>
 			</div>
 		</div>
 		<img
@@ -168,9 +185,90 @@ const methods = [
 		<p>2000+ <span>Часов практики</span></p>
 		<p>100% <span>Довольных клиентов</span></p>
 	</section>
+	<section class="section_services">
+		<h2>Выберите услугу</h2>
+		<div class="wrapper_services">
+			<CardServise
+				class="card_serv"
+				v-for="card of serviceCards"
+				:icon="card.icon"
+				:title="card.title"
+				:desc="card.desc"
+				:button="true"
+			></CardServise>
+		</div>
+	</section>
+	<section class="study_section">
+		<h2>Образование</h2>
+		<div class="wrap_for_slider"><Slider> </Slider></div>
+	</section>
 </template>
 
 <style scoped lang="scss">
+.study_section {
+	background: #f9f6f3;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 0 10rem 0;
+	flex-direction: column;
+	h2 {
+		color: #b97363;
+		font-family: Jost;
+		font-size: 4.8rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 2.7rem; /* 56.25% */
+		letter-spacing: 0.1rem;
+		margin-bottom: 3rem;
+	}
+}
+.card_serv {
+	max-width: 30.6rem;
+	justify-content: space-between;
+	:deep(h2) {
+		font-size: 2rem;
+	}
+	:deep(li) {
+		color: #666;
+		text-align: center;
+		font-family: Jost;
+		font-size: 2.4rem;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 1.8rem; /* 75% */
+		list-style-type: none;
+	}
+	:deep(button) {
+		padding: 1.2rem 4rem;
+	}
+}
+.section_services {
+	padding: 15rem 0 20rem 0;
+	width: 100%;
+	display: flex;
+	background-color: #f9f6f3;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	h2 {
+		color: #5d3127;
+		text-align: center;
+		font-family: Podkova;
+		font-size: 4.5rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 5.5rem; /* 122.222% */
+		margin-bottom: 8rem;
+	}
+	.wrapper_services {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2.4rem;
+	}
+}
 .section_stats {
 	background: #5b3128;
 	width: 100%;
