@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const formSend = ref(false);
 const reviewsArray = [
 	{
 		title: 'Евгения, 27 лет | Киев',
@@ -202,9 +203,158 @@ const serviceCards = [
 		<h2>Образование</h2>
 		<div class="wrap_for_slider"><Slider> </Slider></div>
 	</section>
+	<section class="section_form">
+		<img
+			src="../assets/img/form_img.png"
+			alt="Sycholog Yana Babura see in camera"
+		/>
+		<form
+			action="https://formspree.io/f/xjkyepej"
+			method="POST"
+			class="form_reg"
+			v-if="!formSend"
+		>
+			<h2 class="form_reg__title">
+				Давайте обсудим ваш запрос по телефону или напишите мне и я расскажу,
+				как могу помочь.
+			</h2>
+			<label>
+				<input type="text" name="name" required placeholder="Ваше имя:" />
+			</label>
+			<label>
+				<input type="email" name="email" required placeholder="Ваш email" />
+			</label>
+			<label>
+				<input
+					type="tel"
+					name="phone"
+					pattern="\+?[0-9\s\-\(\)]{7,}"
+					placeholder="Номер телефона"
+					required
+				/>
+			</label>
+			<label>
+				<textarea
+					name="message"
+					placeholder="Здесь можете указать удобное время для звонка:"
+					rows="1"
+				></textarea>
+			</label>
+			<!-- your other form fields go here -->
+			<button
+				type="submit"
+				@submit="
+					() => {
+						formSend = !formSend;
+					}
+				"
+			>
+				ЗАПИСАТЬСЯ
+			</button>
+		</form>
+		<h2 v-if="formSend" class="notify_message">
+			Спасибо за вашу заявку,ближайшее время с вами свяжуться
+		</h2>
+	</section>
 </template>
 
 <style scoped lang="scss">
+.notify_message {
+	color: #5d3127;
+	font-family: Podkova;
+	font-size: 4.5rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 5.5rem; /* 122.222% */
+}
+.form_reg {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	gap: 3rem;
+	button {
+		color: #fff;
+		text-align: center;
+		font-family: Jost;
+		font-size: 1.4rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 2.7rem; /* 192.857% */
+		letter-spacing: 0.1rem;
+		border-radius: 1rem;
+		background: #b87869;
+		padding: 1.4rem 8rem;
+	}
+	label {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		width: 100%;
+		border-bottom: 1px solid rgba(91, 49, 40, 0.1);
+		input {
+			width: 100%;
+			padding: 0.3rem;
+			background-color: transparent;
+			border: none;
+			color: #b87869;
+			font-family: Jost;
+			font-size: 1.6rem;
+			font-weight: 400;
+			&::placeholder {
+				color: #b87869;
+				font-family: Jost;
+				font-size: 1.6rem;
+				font-weight: 400;
+			}
+		}
+		textarea {
+			width: 100%;
+			padding: 0.3rem;
+			background-color: transparent;
+			border: none;
+			resize: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			color: #555;
+			font-family: Jost;
+			font-size: 1.6rem;
+			font-weight: 400;
+			&::placeholder {
+				color: #555;
+				font-family: Jost;
+				font-size: 1.6rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+			}
+		}
+	}
+	.form_reg__title {
+		color: #5d3127;
+		font-family: Podkova;
+		font-size: 4.5rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 5.5rem; /* 122.222% */
+		margin-bottom: 10rem;
+		max-width: 70rem;
+	}
+}
+.section_form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #f9f6f3;
+	padding: 9rem 14rem;
+	gap: 4rem;
+	width: 100%;
+	img {
+		max-width: 63rem;
+	}
+}
 .study_section {
 	background: #f9f6f3;
 	width: 100%;
@@ -219,7 +369,6 @@ const serviceCards = [
 		font-size: 4.8rem;
 		font-style: normal;
 		font-weight: 500;
-		line-height: 2.7rem; /* 56.25% */
 		letter-spacing: 0.1rem;
 		margin-bottom: 3rem;
 	}
