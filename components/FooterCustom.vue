@@ -1,4 +1,29 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const emailSend = ref(false);
+const emailHelp = ref('');
+const submitMail = async () => {
+	const formData = new FormData();
+	formData.append('email', emailHelp.value);
+
+	try {
+		const response = await fetch('https://formspree.io/f/xjkyepej', {
+			method: 'POST',
+			body: formData,
+			headers: { Accept: 'application/json' },
+		});
+
+		if (response.ok) {
+			emailSend.value = true;
+			emailHelp.value = '';
+		} else {
+			alert('Ошибка отправки. Попробуйте снова.');
+		}
+	} catch (error) {
+		console.error('Ошибка:', error);
+		alert('Ошибка сети. Проверьте подключение к интернету.');
+	}
+};
+</script>
 
 <template>
 	<footer>
@@ -29,21 +54,42 @@
 				<li>Форма для записи</li>
 				<li>Образование</li>
 			</ul>
-			<div class="wrap_form_questions">
+			<form
+				class="wrap_form_questions"
+				v-if="!emailSend"
+				@submit.prevent="submitMail"
+			>
 				<h2>Остались вопросы?</h2>
 				<p>Напишите свой email для обратной связи</p>
 				<input
 					type="email"
 					class="wrap_form_questions__input"
 					placeholder="Email adress"
+					v-model="emailHelp"
 				/>
-				<button class="wrap_form_questions__button">Написать</button>
-			</div>
+				<button class="wrap_form_questions__button" type="submit">
+					Написать
+				</button>
+			</form>
+			<h2 class="notify_message" v-if="emailSend">
+				Спасибо за доверие <br />
+				ближайшее время свяжусь с вами
+			</h2>
 		</div>
 	</footer>
 </template>
 
 <style scoped lang="scss">
+.notify_message {
+	color: #ffffff;
+	font-family: Podkova;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2rem; /* 122.222% */
+	text-align: center;
+	margin-left: auto;
+}
 footer {
 	background: url('../assets/img/back_footer.png') no-repeat center;
 	width: 100%;

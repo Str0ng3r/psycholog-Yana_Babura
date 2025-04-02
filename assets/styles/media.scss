@@ -1,7 +1,13 @@
 $medium: 818px;
 $tablet: 530px;
 $mob: 400px;
+$laptop: 1440px;
 
+@mixin lap {
+	@media only screen and (max-width: #{$laptop}) {
+		@content;
+	}
+}
 @mixin m {
 	@media only screen and (max-width: #{$medium}) {
 		@content;

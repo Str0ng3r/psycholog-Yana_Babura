@@ -1,5 +1,39 @@
 <script lang="ts" setup>
 const formSend = ref(false);
+const nameForm = ref('');
+const emailForm = ref('');
+const numberForm = ref('');
+const messageForm = ref('');
+
+const submitForm = async () => {
+	const formData = new FormData();
+	formData.append('name', nameForm.value);
+	formData.append('email', emailForm.value);
+	formData.append('phone', numberForm.value);
+	formData.append('message', messageForm.value);
+
+	try {
+		const response = await fetch('https://formspree.io/f/xjkyepej', {
+			method: 'POST',
+			body: formData,
+			headers: { Accept: 'application/json' },
+		});
+
+		if (response.ok) {
+			formSend.value = true;
+			nameForm.value = '';
+			emailForm.value = '';
+			numberForm.value = '';
+			messageForm.value = '';
+		} else {
+			alert('Ошибка отправки. Попробуйте снова.');
+		}
+	} catch (error) {
+		console.error('Ошибка:', error);
+		alert('Ошибка сети. Проверьте подключение к интернету.');
+	}
+};
+
 const reviewsArray = [
 	{
 		title: 'Евгения, 27 лет | Киев',
@@ -208,21 +242,28 @@ const serviceCards = [
 			src="../assets/img/form_img.png"
 			alt="Sycholog Yana Babura see in camera"
 		/>
-		<form
-			action="https://formspree.io/f/xjkyepej"
-			method="POST"
-			class="form_reg"
-			v-if="!formSend"
-		>
+		<form class="form_reg" v-if="!formSend" @submit.prevent="submitForm">
 			<h2 class="form_reg__title">
-				Давайте обсудим ваш запрос по телефону или напишите мне и я расскажу,
+				Давайте обсудим ваш запрос по телефону или напишите мне, и я расскажу,
 				как могу помочь.
 			</h2>
 			<label>
-				<input type="text" name="name" required placeholder="Ваше имя:" />
+				<input
+					type="text"
+					name="name"
+					required
+					placeholder="Ваше имя:"
+					v-model="nameForm"
+				/>
 			</label>
 			<label>
-				<input type="email" name="email" required placeholder="Ваш email" />
+				<input
+					type="email"
+					name="email"
+					required
+					placeholder="Ваш email"
+					v-model="emailForm"
+				/>
 			</label>
 			<label>
 				<input
@@ -231,6 +272,7 @@ const serviceCards = [
 					pattern="\+?[0-9\s\-\(\)]{7,}"
 					placeholder="Номер телефона"
 					required
+					v-model="numberForm"
 				/>
 			</label>
 			<label>
@@ -238,19 +280,10 @@ const serviceCards = [
 					name="message"
 					placeholder="Здесь можете указать удобное время для звонка:"
 					rows="1"
+					v-model="messageForm"
 				></textarea>
 			</label>
-			<!-- your other form fields go here -->
-			<button
-				type="submit"
-				@submit="
-					() => {
-						formSend = !formSend;
-					}
-				"
-			>
-				ЗАПИСАТЬСЯ
-			</button>
+			<button type="submit">ЗАПИСАТЬСЯ</button>
 		</form>
 		<h2 v-if="formSend" class="notify_message">
 			Спасибо за вашу заявку,ближайшее время с вами свяжуться
@@ -266,6 +299,7 @@ const serviceCards = [
 	font-style: normal;
 	font-weight: 400;
 	line-height: 5.5rem; /* 122.222% */
+	text-align: center;
 }
 .form_reg {
 	display: flex;
@@ -363,6 +397,9 @@ const serviceCards = [
 	justify-content: center;
 	padding: 4rem 0 10rem 0;
 	flex-direction: column;
+	@include lap {
+		padding: 2rem 0 4rem 0;
+	}
 	h2 {
 		color: #b97363;
 		font-family: Jost;
@@ -401,6 +438,9 @@ const serviceCards = [
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	@include lap {
+		padding: 10rem 0 12rem 0;
+	}
 	h2 {
 		color: #5d3127;
 		text-align: center;
@@ -410,6 +450,10 @@ const serviceCards = [
 		font-weight: 400;
 		line-height: 5.5rem; /* 122.222% */
 		margin-bottom: 8rem;
+		@include lap {
+			margin-bottom: 6rem;
+			font-size: 4rem;
+		}
 	}
 	.wrapper_services {
 		display: flex;
@@ -421,7 +465,7 @@ const serviceCards = [
 .section_stats {
 	background: #5b3128;
 	width: 100%;
-	padding: 3.5rem 0;
+	padding: 3.5rem 2rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -430,6 +474,10 @@ const serviceCards = [
 		width: 26rem;
 		height: 26rem;
 		object-fit: cover;
+		@include lap {
+			width: 18rem;
+			height: 18rem;
+		}
 	}
 	p {
 		color: #fff;
@@ -442,6 +490,16 @@ const serviceCards = [
 		display: flex;
 		flex-direction: column;
 		gap: 2.6rem;
+		@include lap {
+			font-size: 6rem;
+			line-height: 6rem;
+			gap: 2.4rem;
+		}
+		@media only screen and (max-width: 1200px) {
+			font-size: 5rem;
+			line-height: 5rem;
+			gap: 2.2rem;
+		}
 		span {
 			color: #fff;
 			text-align: center;
@@ -450,6 +508,14 @@ const serviceCards = [
 			font-style: normal;
 			font-weight: 600;
 			line-height: 2.8rem; /* 70% */
+			@include lap {
+				font-size: 2.6rem;
+				line-height: 2.8rem;
+			}
+			@media only screen and (max-width: 1200px) {
+				font-size: 2rem;
+				line-height: 2.2rem;
+			}
 		}
 	}
 }
@@ -458,11 +524,19 @@ const serviceCards = [
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	@include lap {
+		flex-direction: column;
+		padding-bottom: 6rem;
+	}
 }
 .section_reviews__right_img {
 	object-fit: cover;
 	width: 81.5rem;
 	max-height: 80rem;
+	@include lap {
+		max-height: 60rem;
+		object-position: center;
+	}
 }
 .wrap_for_slider {
 	width: 70rem;
@@ -478,6 +552,9 @@ const serviceCards = [
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	@include lap {
+		padding: 6rem 4rem 4rem 4rem;
+	}
 	h2 {
 		color: #5d3127;
 		text-align: center;
@@ -496,12 +573,18 @@ const serviceCards = [
 	height: 75rem;
 	align-items: flex-start;
 	justify-content: space-between;
+	@include lap {
+		height: 54rem;
+	}
 	.how_work__wrap_info {
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-start;
 		flex-direction: column;
 		padding: 4rem 3rem;
+		@include lap {
+			padding: 3rem 2rem;
+		}
 		.how_work__undertext {
 			color: #fff;
 			text-align: center;
@@ -511,9 +594,15 @@ const serviceCards = [
 			font-weight: 600;
 			line-height: 2.8rem; /* 140% */
 			margin-bottom: 2.5rem;
+			@include lap {
+				display: none;
+				font-size: 1.8rem;
+				line-height: 2.2rem;
+				margin-bottom: 2rem;
+			}
 		}
 		.how_work__button {
-			padding: 1.5rem 11rem 1.5rem 11rem;
+			padding: 1.5rem 11rem;
 			border-radius: 1rem;
 			background: #b97363;
 			color: #fff;
@@ -523,6 +612,9 @@ const serviceCards = [
 			font-weight: 500;
 			line-height: 2.7rem; /* 135% */
 			margin: 0 auto;
+			@include lap {
+				padding: 1.5rem 8rem;
+			}
 		}
 		h2 {
 			color: #fff;
@@ -533,6 +625,11 @@ const serviceCards = [
 			line-height: 2.7rem; /* 67.5% */
 			letter-spacing: 0.1rem;
 			margin-bottom: 1.6rem;
+			@include lap {
+				font-size: 3rem;
+				line-height: 3rem;
+				margin-bottom: 1.2rem;
+			}
 		}
 		p {
 			color: #fff;
@@ -542,17 +639,25 @@ const serviceCards = [
 			font-weight: 400;
 			line-height: 4rem; /* 133.333% */
 			margin-bottom: 2rem;
+			@include lap {
+				font-size: 2rem;
+				line-height: 2.8rem;
+				margin-bottom: 3rem;
+			}
 		}
 		.wrapper_for_works_methods {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr); /* Две колонки */
-			gap: 20px;
 			margin: 0 auto;
 			flex-wrap: wrap;
 			align-items: flex-start;
 			justify-content: center;
 			margin-bottom: 4.4rem;
 			gap: 3rem;
+			@include lap {
+				gap: 2rem;
+				margin-bottom: 3rem;
+			}
 			p {
 				gap: 2rem;
 				display: flex;
@@ -565,6 +670,12 @@ const serviceCards = [
 				font-style: normal;
 				font-weight: 600;
 				line-height: 2.8rem; /* 155.556% */
+				@include lap {
+					gap: 1.6rem;
+					line-height: 2rem;
+					font-size: 1.6rem;
+					max-width: 24rem;
+				}
 			}
 		}
 	}
@@ -572,6 +683,10 @@ const serviceCards = [
 		width: 45%;
 		height: 100%;
 		object-fit: cover;
+		@include lap {
+			width: 40%;
+			object-position: center;
+		}
 	}
 }
 .request_list {
@@ -582,6 +697,9 @@ const serviceCards = [
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
+	@include lap {
+		padding: 6rem 18rem;
+	}
 	.button_requset {
 		padding: 1.4rem 4.4rem 1.4rem 4.4rem;
 		border-radius: 1rem;
@@ -594,6 +712,9 @@ const serviceCards = [
 		font-weight: 500;
 		line-height: 3rem; /* 214.286% */
 		margin-top: 7.8rem;
+		@include lap {
+			margin-top: 5rem;
+		}
 	}
 	p {
 		color: #b97363;
@@ -621,6 +742,9 @@ const serviceCards = [
 		align-items: center;
 		justify-content: center;
 		gap: 2.4rem;
+		@include lap {
+			flex-wrap: wrap;
+		}
 	}
 }
 .main_sect {
@@ -631,6 +755,12 @@ const serviceCards = [
 	justify-content: space-between;
 	background: url('../assets/img/background_main.png') center no-repeat;
 	position: relative;
+	@include lap {
+		padding: 16rem 14rem 26rem 14rem;
+	}
+	@media only screen and (max-width: 1200px) {
+		padding: 16rem 8rem 22rem 8rem;
+	}
 }
 .wrap_about_info {
 	display: flex;
@@ -638,6 +768,9 @@ const serviceCards = [
 	align-items: flex-start;
 	justify-content: flex-start;
 	gap: 4rem;
+	@include lap {
+		gap: 2.4rem;
+	}
 	h2 {
 		color: #5d3127;
 		font-family: Podkova;
@@ -645,6 +778,14 @@ const serviceCards = [
 		font-style: normal;
 		font-weight: 400;
 		line-height: 5.5rem; /* 122.222% */
+		@include lap {
+			font-size: 3.2rem;
+			line-height: 3.4rem;
+		}
+		@media only screen and (max-width: 1200px) {
+			font-size: 2.8rem;
+			line-height: 3rem;
+		}
 	}
 	h3 {
 		color: #000;
@@ -653,6 +794,14 @@ const serviceCards = [
 		font-style: normal;
 		font-weight: 400;
 		line-height: 4.5rem; /* 140.625% */
+		@include lap {
+			font-size: 2.8rem;
+			line-height: 3.4rem;
+		}
+		@media only screen and (max-width: 1200px) {
+			font-size: 2.4rem;
+			line-height: 2.8rem;
+		}
 	}
 	button {
 		color: #fff;
@@ -661,9 +810,12 @@ const serviceCards = [
 		font-style: normal;
 		font-weight: 500;
 		line-height: 2.7rem; /* 192.857% */
-		padding: 1.8rem 5.6rem 1.8rem 5.6rem;
+		padding: 1.8rem 5.6rem;
 		background-color: #b97363;
 		border-radius: 1rem;
+		@include lap {
+			padding: 1.4rem 3.2rem;
+		}
 	}
 }
 .photo_main_psycholog {
@@ -671,9 +823,20 @@ const serviceCards = [
 	bottom: 0;
 	right: 12rem;
 	max-width: 62rem;
+	@include lap {
+		max-width: 58rem;
+		right: 10rem;
+	}
+	@media only screen and (max-width: 1200px) {
+		max-width: 50rem;
+		right: 4rem;
+	}
 }
 .img_about {
 	max-width: 80rem;
+	@include lap {
+		max-width: 48rem;
+	}
 }
 .about_section {
 	padding: 9rem 9.6rem 11rem 9.6rem;
@@ -682,6 +845,9 @@ const serviceCards = [
 	gap: 6rem;
 	align-items: center;
 	justify-content: space-between;
+	@include lap {
+		padding: 7rem 6rem 8rem 6rem;
+	}
 }
 .wrap_title {
 	display: flex;
@@ -705,6 +871,10 @@ const serviceCards = [
 		font-style: normal;
 		font-weight: 600;
 		line-height: 9.5rem; /* 118.75% */
+		@include lap {
+			font-size: 7rem;
+			line-height: 8rem;
+		}
 	}
 	h3 {
 		color: #fff;
@@ -713,6 +883,9 @@ const serviceCards = [
 		font-style: normal;
 		font-weight: 500;
 		line-height: 3.2rem; /* 133.333% */
+		@include lap {
+			font-size: 2.2rem;
+		}
 	}
 }
 </style>

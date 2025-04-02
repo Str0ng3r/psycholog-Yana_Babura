@@ -11,10 +11,6 @@ import type { Swiper as SwiperInstance } from 'swiper';
 const onSwiper = (swiper: SwiperInstance) => {
 	console.log(swiper);
 };
-
-const onSlideChange = () => {
-	console.log('slide change');
-};
 </script>
 <template>
 	<swiper
@@ -26,7 +22,6 @@ const onSlideChange = () => {
 		:grabCursor="true"
 		:loop="true"
 		@swiper="onSwiper"
-		@slideChange="onSlideChange"
 		class="custom-swiper"
 	>
 		<swiper-slide

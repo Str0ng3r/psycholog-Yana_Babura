@@ -40,6 +40,11 @@ const props = defineProps({
 	background-color: #ffffff;
 	border-radius: 1rem;
 	min-height: 37.5rem;
+	@include lap {
+		max-height: 33rem;
+		padding: 1.4rem 2.6rem;
+		max-width: 26.8rem;
+	}
 	.icon_card {
 		margin-bottom: 2rem;
 	}
