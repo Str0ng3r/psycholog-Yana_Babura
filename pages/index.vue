@@ -307,6 +307,9 @@ const serviceCards = [
 	justify-content: center;
 	flex-direction: column;
 	gap: 3rem;
+	@include lap {
+		align-items: center;
+	}
 	button {
 		color: #fff;
 		text-align: center;
@@ -375,6 +378,10 @@ const serviceCards = [
 		line-height: 5.5rem; /* 122.222% */
 		margin-bottom: 10rem;
 		max-width: 70rem;
+		@include lap {
+			margin-bottom: 6rem;
+			text-align: center;
+		}
 	}
 }
 .section_form {
@@ -385,8 +392,15 @@ const serviceCards = [
 	padding: 9rem 14rem;
 	gap: 4rem;
 	width: 100%;
+	@include lap {
+		flex-direction: column;
+		padding: 6rem 10rem;
+	}
 	img {
 		max-width: 63rem;
+		@include lap {
+			max-width: 46rem;
+		}
 	}
 }
 .study_section {
@@ -761,6 +775,9 @@ const serviceCards = [
 	@media only screen and (max-width: 1200px) {
 		padding: 16rem 8rem 22rem 8rem;
 	}
+	@include m {
+		padding: 10rem 8rem 10rem 8rem;
+	}
 }
 .wrap_about_info {
 	display: flex;
@@ -770,6 +787,10 @@ const serviceCards = [
 	gap: 4rem;
 	@include lap {
 		gap: 2.4rem;
+	}
+	@include m {
+		align-items: center;
+		justify-content: center;
 	}
 	h2 {
 		color: #5d3127;
@@ -786,6 +807,9 @@ const serviceCards = [
 			font-size: 2.8rem;
 			line-height: 3rem;
 		}
+		@include m {
+			text-align: center;
+		}
 	}
 	h3 {
 		color: #000;
@@ -801,6 +825,9 @@ const serviceCards = [
 		@media only screen and (max-width: 1200px) {
 			font-size: 2.4rem;
 			line-height: 2.8rem;
+		}
+		@include m {
+			text-align: center;
 		}
 	}
 	button {
@@ -831,6 +858,10 @@ const serviceCards = [
 		max-width: 50rem;
 		right: 4rem;
 	}
+	@include m {
+		max-width: 30rem;
+		right: 2rem;
+	}
 }
 .img_about {
 	max-width: 80rem;
@@ -848,6 +879,10 @@ const serviceCards = [
 	@include lap {
 		padding: 7rem 6rem 8rem 6rem;
 	}
+	@include m {
+		flex-direction: column;
+		padding: 7rem 9.6rem 7rem 9.6rem;
+	}
 }
 .wrap_title {
 	display: flex;
@@ -863,6 +898,10 @@ const serviceCards = [
 		font-weight: 500;
 		line-height: 1.92rem; /* 96% */
 		letter-spacing: 0.1rem;
+		@include m {
+			font-size: 1.6rem;
+			line-height: 2rem;
+		}
 	}
 	h1 {
 		color: #fff;
@@ -875,6 +914,10 @@ const serviceCards = [
 			font-size: 7rem;
 			line-height: 8rem;
 		}
+		@include m {
+			font-size: 5rem;
+			line-height: 6rem;
+		}
 	}
 	h3 {
 		color: #fff;
@@ -885,6 +928,10 @@ const serviceCards = [
 		line-height: 3.2rem; /* 133.333% */
 		@include lap {
 			font-size: 2.2rem;
+		}
+		@include m {
+			font-size: 2rem;
+			line-height: 2.4rem;
 		}
 	}
 }

@@ -89,6 +89,9 @@ const submitMail = async () => {
 	line-height: 2rem; /* 122.222% */
 	text-align: center;
 	margin-left: auto;
+	@include lap {
+		font-size: 1.6rem;
+	}
 }
 footer {
 	background: url('../assets/img/back_footer.png') no-repeat center;
@@ -98,6 +101,9 @@ footer {
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
+	@include lap {
+		padding: 4rem 6rem 4rem 6rem;
+	}
 }
 .wrap_form_questions {
 	display: flex;
@@ -106,6 +112,9 @@ footer {
 	justify-content: flex-start;
 	gap: 2.5rem;
 	margin-left: auto;
+	@include lap {
+		gap: 2rem;
+	}
 	h2 {
 		color: #fefefe;
 		font-family: Jost;
@@ -113,6 +122,9 @@ footer {
 		font-style: normal;
 		font-weight: 600;
 		line-height: 2.64rem; /* 120% */
+		@include lap {
+			font-size: 2rem;
+		}
 	}
 	p {
 		color: #fefefe;
@@ -121,6 +133,10 @@ footer {
 		font-style: normal;
 		font-weight: 400;
 		line-height: 2.8rem; /* 164.706% */
+		@include lap {
+			font-size: 1.4rem;
+			line-height: 1.8rem; /* 164.706% */
+		}
 	}
 	.wrap_form_questions__button {
 		padding: 1.6rem 6.4rem 1.6rem 6.4rem;
@@ -134,6 +150,10 @@ footer {
 		font-style: normal;
 		font-weight: 400;
 		line-height: 2.7rem; /* 112.5% */
+		@include lap {
+			font-size: 2rem;
+			line-height: 2.2rem; /* 164.706% */
+		}
 	}
 	.wrap_form_questions__input {
 		padding: 2rem 1.6rem 2rem 1.6rem;
@@ -147,6 +167,9 @@ footer {
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal;
+		@include lap {
+			padding: 1.8rem 1.4rem 1.8rem 1.4rem;
+		}
 		&::placeholder {
 			color: #fefefe;
 			font-family: Podkova;
@@ -169,6 +192,9 @@ footer {
 	align-items: flex-start;
 	justify-content: center;
 	margin-right: 10rem;
+	@include lap {
+		margin-right: 6rem;
+	}
 }
 .qiuck_links_list {
 	display: flex;
@@ -184,6 +210,11 @@ footer {
 		font-weight: 600;
 		line-height: 2.64rem; /* 120% */
 		margin-bottom: 2rem;
+		@include lap {
+			font-size: 2rem;
+			line-height: 2.2rem; /* 164.706% */
+			margin-bottom: 1.6rem;
+		}
 	}
 	li {
 		color: rgba(254, 254, 254, 0.8);

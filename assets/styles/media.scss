@@ -1,6 +1,5 @@
-$medium: 818px;
-$tablet: 530px;
-$mob: 400px;
+$medium: 1000px;
+$mob: 767px;
 $laptop: 1440px;
 
 @mixin lap {
@@ -10,11 +9,6 @@ $laptop: 1440px;
 }
 @mixin m {
 	@media only screen and (max-width: #{$medium}) {
-		@content;
-	}
-}
-@mixin t {
-	@media only screen and (max-width: #{$tablet}) {
 		@content;
 	}
 }
