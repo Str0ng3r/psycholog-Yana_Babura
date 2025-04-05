@@ -29,6 +29,11 @@ const props = defineProps({
 	font-weight: 500;
 	line-height: 3rem; /* 214.286% */
 	margin-top: 2rem;
+	@include mob {
+		padding: 1.4rem 2.6rem;
+		font-size: 1.6rem;
+		line-height: 2rem;
+	}
 }
 .card_servise {
 	width: 100%;
@@ -45,6 +50,9 @@ const props = defineProps({
 		padding: 1.4rem 2.6rem;
 		max-width: 26.8rem;
 	}
+	// @include mob {
+	// 	max-height: 26rem;
+	// }
 	.icon_card {
 		margin-bottom: 2rem;
 	}
@@ -57,6 +65,11 @@ const props = defineProps({
 		font-weight: 600;
 		line-height: 2.5rem; /* 156.25% */
 		margin-bottom: 2rem;
+		// @include mob {
+		// 	font-size: 1.4rem;
+		// 	line-height: 2rem;
+		// 	margin-bottom: 1.6rem;
+		// }
 	}
 	li {
 		color: #666;
@@ -66,6 +79,10 @@ const props = defineProps({
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.8rem; /* 138.462% */
+		// @include mob {
+		// 	font-size: 1rem;
+		// 	line-height: 1.4rem;
+		// }
 	}
 }
 </style>

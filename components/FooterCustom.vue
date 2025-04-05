@@ -30,7 +30,7 @@ const submitMail = async () => {
 		<div class="wrap_footer_top">
 			<div class="wrap_footer_info">
 				<div class="wrap_logo">
-					<nuxt-icon name="Logo" filled></nuxt-icon>
+					<nuxt-icon name="Logo" filled class="icon_logotip"></nuxt-icon>
 					<p>Yana Babura</p>
 				</div>
 				<p class="footer_text">
@@ -38,21 +38,34 @@ const submitMail = async () => {
 					увереннее!
 				</p>
 				<div class="wrap_call_button">
-					<button class="wrap_call_button__button">
+					<a class="wrap_call_button__button" href="tel:+48452007989">
 						<nuxt-icon name="phone_call" filled></nuxt-icon>
-					</button>
+					</a>
 					<p class="wrap_call_button__number">
-						<span>Бесплатный вызов</span>+48000000000
+						<span>Бесплатный вызов</span>+48452007989
 					</p>
 				</div>
 			</div>
 			<ul class="qiuck_links_list">
 				<h2>Быстрая навигация</h2>
-				<li>Шапка</li>
-				<li>Обо мне</li>
-				<li>Услуги и цены</li>
-				<li>Форма для записи</li>
-				<li>Образование</li>
+				<li><a href="#header">Шапка</a></li>
+				<li><a href="#about">Обо мне</a></li>
+				<li><a href="#services">Услуги и цены</a></li>
+				<li><a href="#form_sender">Форма для записи</a></li>
+				<li><a href="#studies">Образование</a></li>
+				<div class="wrap_socials_links">
+					<a href="https://www.facebook.com/profile.php?id=61574399262623">
+						<nuxt-icon name="facebook" filled class="facebook_icon"></nuxt-icon
+					></a>
+					<a
+						href="https://www.instagram.com/yana.babura.psycholog?igsh=MXI1eThzOHF1dHUyOQ=="
+						><nuxt-icon
+							name="instagram"
+							filled
+							class="instagram_icon"
+						></nuxt-icon
+					></a>
+				</div>
 			</ul>
 			<form
 				class="wrap_form_questions"
@@ -80,6 +93,20 @@ const submitMail = async () => {
 </template>
 
 <style scoped lang="scss">
+.facebook_icon {
+	cursor: pointer;
+	opacity: 0.7;
+	&:hover :deep(svg > path) {
+		fill: #b87869;
+	}
+}
+.instagram_icon {
+	cursor: pointer;
+	opacity: 0.7;
+	&:hover :deep(svg > path) {
+		stroke: #b87869;
+	}
+}
 .notify_message {
 	color: #ffffff;
 	font-family: Podkova;
@@ -93,6 +120,15 @@ const submitMail = async () => {
 		font-size: 1.6rem;
 	}
 }
+.wrap_socials_links {
+	width: 100%;
+	display: flex;
+	gap: 2rem;
+	@include mob {
+		align-items: center;
+		justify-content: center;
+	}
+}
 footer {
 	background: url('../assets/img/back_footer.png') no-repeat center;
 	width: 100%;
@@ -102,7 +138,12 @@ footer {
 	align-items: flex-start;
 	justify-content: center;
 	@include lap {
-		padding: 4rem 6rem 4rem 6rem;
+		padding: 4rem 6rem;
+		background-size: cover;
+	}
+	@include mob {
+		padding: 2rem 4rem;
+		align-items: center;
 	}
 }
 .wrap_form_questions {
@@ -114,6 +155,15 @@ footer {
 	margin-left: auto;
 	@include lap {
 		gap: 2rem;
+	}
+	@include m {
+		margin-left: 1rem;
+		margin-top: 2rem;
+	}
+	@include mob {
+		margin-left: 0;
+		align-items: center;
+		justify-content: center;
 	}
 	h2 {
 		color: #fefefe;
@@ -185,6 +235,13 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
+	@include m {
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+	@include mob {
+		justify-content: center;
+	}
 }
 .wrap_footer_info {
 	display: flex;
@@ -195,6 +252,13 @@ footer {
 	@include lap {
 		margin-right: 6rem;
 	}
+	@include m {
+		margin-right: 3rem;
+	}
+	@include mob {
+		margin-right: 0;
+		align-items: center;
+	}
 }
 .qiuck_links_list {
 	display: flex;
@@ -202,6 +266,15 @@ footer {
 	align-items: flex-start;
 	justify-content: center;
 	gap: 1.4rem;
+	padding-top: 4rem;
+	@include m {
+		gap: 0.8rem;
+	}
+	@include mob {
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 2rem !important;
+	}
 	h2 {
 		color: #fefefe;
 		font-family: Jost;
@@ -215,6 +288,9 @@ footer {
 			line-height: 2.2rem; /* 164.706% */
 			margin-bottom: 1.6rem;
 		}
+		@include mob {
+			margin-bottom: 1rem;
+		}
 	}
 	li {
 		color: rgba(254, 254, 254, 0.8);
@@ -223,6 +299,10 @@ footer {
 		font-style: normal;
 		font-weight: 400;
 		line-height: 2.7rem; /* 158.824% */
+		a {
+			all: unset;
+			cursor: pointer;
+		}
 	}
 }
 .wrap_logo {
@@ -231,6 +311,15 @@ footer {
 	align-items: center;
 	justify-content: flex-start;
 	margin-bottom: 6rem;
+	@include m {
+		margin-bottom: 1rem;
+	}
+	.icon_logotip:deep(svg) {
+		@include mob {
+			width: 8rem;
+			height: 8rem;
+		}
+	}
 	p {
 		color: #ffffff;
 		font-family: Podkova;
@@ -238,6 +327,13 @@ footer {
 		font-style: normal;
 		font-weight: 400;
 		line-height: 9.5rem; /* 237.5% */
+		@include m {
+			line-height: 4rem;
+		}
+		@include mob {
+			font-size: 3rem;
+			line-height: 3rem;
+		}
 	}
 }
 .footer_text {
@@ -251,6 +347,11 @@ footer {
 	opacity: 0.8;
 	max-width: 26rem;
 	padding-left: 2rem;
+	@include mob {
+		padding-left: 0;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
 }
 .wrap_call_button {
 	display: flex;
@@ -258,6 +359,10 @@ footer {
 	justify-content: flex-start;
 	gap: 1.6rem;
 	padding-left: 2rem;
+	@include mob {
+		padding-left: 0;
+		margin-bottom: 2rem;
+	}
 }
 .wrap_call_button__button {
 	width: 4.3rem;

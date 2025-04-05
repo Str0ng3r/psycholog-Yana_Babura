@@ -25,6 +25,10 @@ const props = defineProps({
 	justify-content: center;
 	flex-direction: column;
 	gap: 2rem;
+	@include mob {
+		padding: 1rem;
+		align-items: center;
+	}
 	.wrap_stars {
 		display: flex;
 		align-items: flex-start;
@@ -38,6 +42,10 @@ const props = defineProps({
 		font-style: normal;
 		font-weight: 600;
 		line-height: 2.76rem; /* 120% */
+		@include mob {
+			font-size: 2rem;
+			line-height: 2.2rem;
+		}
 	}
 	p {
 		color: #666;
@@ -46,6 +54,10 @@ const props = defineProps({
 		font-style: normal;
 		font-weight: 400;
 		line-height: 2.7rem; /* 192.857% */
+		@include mob {
+			font-size: 1.4rem;
+			line-height: 2rem;
+		}
 	}
 }
 </style>

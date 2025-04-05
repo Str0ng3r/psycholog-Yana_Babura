@@ -150,7 +150,7 @@ const serviceCards = [
 			alt="Photo sycholog Yana Babura"
 			class="img_about"
 		/>
-		<div class="wrap_about_info">
+		<div class="wrap_about_info" id="about">
 			<h2>Меня зовут Яна, я дипломированный психолог и игропрактик.</h2>
 			<h3>
 				Я создаю пространство, в котором можна быть собой - без страха
@@ -220,7 +220,7 @@ const serviceCards = [
 		<p>2000+ <span>Часов практики</span></p>
 		<p>100% <span>Довольных клиентов</span></p>
 	</section>
-	<section class="section_services">
+	<section class="section_services" id="services">
 		<h2>Выберите услугу</h2>
 		<div class="wrapper_services">
 			<CardServise
@@ -233,11 +233,11 @@ const serviceCards = [
 			></CardServise>
 		</div>
 	</section>
-	<section class="study_section">
+	<section class="study_section" id="studies">
 		<h2>Образование</h2>
 		<div class="wrap_for_slider"><Slider> </Slider></div>
 	</section>
-	<section class="section_form">
+	<section class="section_form" id="form_sender">
 		<img
 			src="../assets/img/form_img.png"
 			alt="Sycholog Yana Babura see in camera"
@@ -309,6 +309,9 @@ const serviceCards = [
 	gap: 3rem;
 	@include lap {
 		align-items: center;
+	}
+	@include mob {
+		gap: 2rem;
 	}
 	button {
 		color: #fff;
@@ -382,6 +385,11 @@ const serviceCards = [
 			margin-bottom: 6rem;
 			text-align: center;
 		}
+		@include mob {
+			font-size: 3rem;
+			line-height: 3.4rem;
+			margin-bottom: 4rem;
+		}
 	}
 }
 .section_form {
@@ -396,10 +404,16 @@ const serviceCards = [
 		flex-direction: column;
 		padding: 6rem 10rem;
 	}
+	@include mob {
+		padding: 3rem 2rem;
+	}
 	img {
 		max-width: 63rem;
 		@include lap {
 			max-width: 46rem;
+		}
+		@include mob {
+			max-height: 40rem;
 		}
 	}
 }
@@ -414,6 +428,10 @@ const serviceCards = [
 	@include lap {
 		padding: 2rem 0 4rem 0;
 	}
+	@include mob {
+		padding-top: 0;
+		padding-bottom: 2rem;
+	}
 	h2 {
 		color: #b97363;
 		font-family: Jost;
@@ -422,6 +440,10 @@ const serviceCards = [
 		font-weight: 500;
 		letter-spacing: 0.1rem;
 		margin-bottom: 3rem;
+		@include mob {
+			font-size: 3.6rem;
+			margin-bottom: 2rem;
+		}
 	}
 }
 .card_serv {
@@ -455,6 +477,9 @@ const serviceCards = [
 	@include lap {
 		padding: 10rem 0 12rem 0;
 	}
+	@include mob {
+		padding: 4rem 0 6rem 0;
+	}
 	h2 {
 		color: #5d3127;
 		text-align: center;
@@ -468,12 +493,20 @@ const serviceCards = [
 			margin-bottom: 6rem;
 			font-size: 4rem;
 		}
+		@include mob {
+			margin-bottom: 2rem;
+			font-size: 3rem;
+		}
 	}
 	.wrapper_services {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 2.4rem;
+		@include m {
+			flex-wrap: wrap;
+			max-width: 31rem;
+		}
 	}
 }
 .section_stats {
@@ -483,6 +516,9 @@ const serviceCards = [
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	@include mob {
+		padding: 1.4rem;
+	}
 	img {
 		border-radius: 50%;
 		width: 26rem;
@@ -491,6 +527,9 @@ const serviceCards = [
 		@include lap {
 			width: 18rem;
 			height: 18rem;
+		}
+		@include mob {
+			display: none;
 		}
 	}
 	p {
@@ -514,6 +553,11 @@ const serviceCards = [
 			line-height: 5rem;
 			gap: 2.2rem;
 		}
+		@include mob {
+			gap: 1rem;
+			font-size: 2.6rem;
+			line-height: 3rem;
+		}
 		span {
 			color: #fff;
 			text-align: center;
@@ -530,6 +574,10 @@ const serviceCards = [
 				font-size: 2rem;
 				line-height: 2.2rem;
 			}
+			@include mob {
+				font-size: 1.8rem;
+				line-height: 2rem;
+			}
 		}
 	}
 }
@@ -542,6 +590,12 @@ const serviceCards = [
 		flex-direction: column;
 		padding-bottom: 6rem;
 	}
+	@include m {
+		padding-bottom: 10rem;
+	}
+	@include mob {
+		padding-bottom: 0rem;
+	}
 }
 .section_reviews__right_img {
 	object-fit: cover;
@@ -551,6 +605,9 @@ const serviceCards = [
 		max-height: 60rem;
 		object-position: center;
 	}
+	@include mob {
+		display: none;
+	}
 }
 .wrap_for_slider {
 	width: 70rem;
@@ -558,6 +615,9 @@ const serviceCards = [
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	@include mob {
+		width: 32rem;
+	}
 }
 .section_reviews__wrap_text {
 	padding: 10rem 6rem;
@@ -569,6 +629,9 @@ const serviceCards = [
 	@include lap {
 		padding: 6rem 4rem 4rem 4rem;
 	}
+	@include mob {
+		padding: 3rem;
+	}
 	h2 {
 		color: #5d3127;
 		text-align: center;
@@ -578,6 +641,11 @@ const serviceCards = [
 		font-weight: 400;
 		line-height: 5.5rem; /* 122.222% */
 		margin-bottom: 5.8rem;
+		@include mob {
+			font-size: 3rem;
+			line-height: 3.4rem;
+			margin-bottom: 1rem;
+		}
 	}
 }
 .how_work_section {
@@ -590,6 +658,13 @@ const serviceCards = [
 	@include lap {
 		height: 54rem;
 	}
+	@include m {
+		height: 64rem;
+	}
+	@include mob {
+		flex-direction: column;
+		height: auto;
+	}
 	.how_work__wrap_info {
 		display: flex;
 		align-items: flex-start;
@@ -598,6 +673,9 @@ const serviceCards = [
 		padding: 4rem 3rem;
 		@include lap {
 			padding: 3rem 2rem;
+		}
+		@include mob {
+			padding: 2rem 1.4rem;
 		}
 		.how_work__undertext {
 			color: #fff;
@@ -614,6 +692,11 @@ const serviceCards = [
 				line-height: 2.2rem;
 				margin-bottom: 2rem;
 			}
+			@include mob {
+				font-size: 1.2rem;
+				line-height: 1.4rem;
+				margin-bottom: 1rem;
+			}
 		}
 		.how_work__button {
 			padding: 1.5rem 11rem;
@@ -628,6 +711,11 @@ const serviceCards = [
 			margin: 0 auto;
 			@include lap {
 				padding: 1.5rem 8rem;
+			}
+			@include mob {
+				padding: 1.4rem 2.6rem;
+				font-size: 1.6rem;
+				line-height: 2rem;
 			}
 		}
 		h2 {
@@ -644,6 +732,11 @@ const serviceCards = [
 				line-height: 3rem;
 				margin-bottom: 1.2rem;
 			}
+			@include mob {
+				font-size: 2rem;
+				line-height: 2rem;
+				margin-bottom: 0.8rem;
+			}
 		}
 		p {
 			color: #fff;
@@ -658,6 +751,12 @@ const serviceCards = [
 				line-height: 2.8rem;
 				margin-bottom: 3rem;
 			}
+			@include mob {
+				font-size: 1.2rem;
+				line-height: 1.4rem;
+				margin-bottom: 1.6rem;
+				white-space: wrap;
+			}
 		}
 		.wrapper_for_works_methods {
 			display: grid;
@@ -671,6 +770,10 @@ const serviceCards = [
 			@include lap {
 				gap: 2rem;
 				margin-bottom: 3rem;
+			}
+			@include mob {
+				gap: 1.4rem;
+				margin-bottom: 2rem;
 			}
 			p {
 				gap: 2rem;
@@ -690,6 +793,17 @@ const serviceCards = [
 					font-size: 1.6rem;
 					max-width: 24rem;
 				}
+				@include mob {
+					gap: 1rem;
+					line-height: 1.6rem;
+					font-size: 1.2rem;
+					max-width: 24rem;
+				}
+				:deep(svg) {
+					@include mob {
+						width: 1.4rem;
+					}
+				}
 			}
 		}
 	}
@@ -700,6 +814,9 @@ const serviceCards = [
 		@include lap {
 			width: 40%;
 			object-position: center;
+		}
+		@include mob {
+			width: 100%;
 		}
 	}
 }
@@ -713,6 +830,9 @@ const serviceCards = [
 	justify-content: flex-start;
 	@include lap {
 		padding: 6rem 18rem;
+	}
+	@include mob {
+		padding: 4rem 4rem;
 	}
 	.button_requset {
 		padding: 1.4rem 4.4rem 1.4rem 4.4rem;
@@ -729,6 +849,12 @@ const serviceCards = [
 		@include lap {
 			margin-top: 5rem;
 		}
+		@include mob {
+			margin-top: 2.8rem;
+			padding: 1.4rem 2.6rem;
+			font-size: 1.6rem;
+			line-height: 2rem;
+		}
 	}
 	p {
 		color: #b97363;
@@ -740,6 +866,9 @@ const serviceCards = [
 		line-height: 2.7rem; /* 168.75% */
 		letter-spacing: 0.1rem;
 		margin-bottom: 1.5rem;
+		@include mob {
+			line-height: 2rem;
+		}
 	}
 	h2 {
 		color: #5d3127;
@@ -750,6 +879,11 @@ const serviceCards = [
 		font-weight: 400;
 		line-height: 5.5rem; /* 122.222% */
 		margin-bottom: 7rem;
+		@include mob {
+			margin-bottom: 2rem;
+			font-size: 3rem;
+			line-height: 3.6rem;
+		}
 	}
 	.wrap_cards {
 		display: flex;
@@ -758,6 +892,9 @@ const serviceCards = [
 		gap: 2.4rem;
 		@include lap {
 			flex-wrap: wrap;
+		}
+		@include mob {
+			gap: 1.8rem;
 		}
 	}
 }
@@ -777,6 +914,9 @@ const serviceCards = [
 	}
 	@include m {
 		padding: 10rem 8rem 10rem 8rem;
+	}
+	@include mob {
+		padding: 3rem 3rem 3rem 3rem;
 	}
 }
 .wrap_about_info {
@@ -810,6 +950,10 @@ const serviceCards = [
 		@include m {
 			text-align: center;
 		}
+		@include mob {
+			font-size: 2rem;
+			line-height: 2.4rem;
+		}
 	}
 	h3 {
 		color: #000;
@@ -829,6 +973,10 @@ const serviceCards = [
 		@include m {
 			text-align: center;
 		}
+		@include mob {
+			font-size: 1.6rem;
+			line-height: 2rem;
+		}
 	}
 	button {
 		color: #fff;
@@ -842,6 +990,11 @@ const serviceCards = [
 		border-radius: 1rem;
 		@include lap {
 			padding: 1.4rem 3.2rem;
+		}
+		@include mob {
+			padding: 1.4rem 2.6rem;
+			font-size: 1.6rem;
+			line-height: 2rem;
 		}
 	}
 }
@@ -862,11 +1015,18 @@ const serviceCards = [
 		max-width: 30rem;
 		right: 2rem;
 	}
+	@include mob {
+		max-width: 20rem;
+		right: 0.2rem;
+	}
 }
 .img_about {
 	max-width: 80rem;
 	@include lap {
 		max-width: 48rem;
+	}
+	@include mob {
+		display: none;
 	}
 }
 .about_section {
@@ -883,6 +1043,9 @@ const serviceCards = [
 		flex-direction: column;
 		padding: 7rem 9.6rem 7rem 9.6rem;
 	}
+	@include mob {
+		padding: 4rem 4rem 4rem 4rem;
+	}
 }
 .wrap_title {
 	display: flex;
@@ -890,6 +1053,9 @@ const serviceCards = [
 	align-items: flex-start;
 	justify-content: flex-start;
 	gap: 1.6rem;
+	@include mob {
+		gap: 0.8rem;
+	}
 	p {
 		color: #ffe6e0;
 		font-family: Jost;
@@ -901,6 +1067,10 @@ const serviceCards = [
 		@include m {
 			font-size: 1.6rem;
 			line-height: 2rem;
+		}
+		@include mob {
+			font-size: 1.4rem;
+			line-height: 1.6rem;
 		}
 	}
 	h1 {
@@ -918,6 +1088,10 @@ const serviceCards = [
 			font-size: 5rem;
 			line-height: 6rem;
 		}
+		@include mob {
+			font-size: 3rem;
+			line-height: 4rem;
+		}
 	}
 	h3 {
 		color: #fff;
@@ -932,6 +1106,11 @@ const serviceCards = [
 		@include m {
 			font-size: 2rem;
 			line-height: 2.4rem;
+		}
+		@include mob {
+			font-size: 1.6rem;
+			line-height: 2rem;
+			max-width: 18rem;
 		}
 	}
 }
