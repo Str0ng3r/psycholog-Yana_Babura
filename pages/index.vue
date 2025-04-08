@@ -234,7 +234,7 @@ const serviceCards = [
 			</div>
 		</div>
 		<img
-			src="../assets/img/reviews_img.jpg"
+			src="../assets/img/reviews_img.png"
 			alt="Psycholog speak with people"
 			class="section_reviews__right_img"
 			loading="lazy"
@@ -242,7 +242,7 @@ const serviceCards = [
 	</section>
 	<section class="section_stats">
 		<img
-			src="../assets/img/stats_img.jpg"
+			src="../assets/img/stats_img.png"
 			alt="Psycholog Yana Babura see in window"
 			loading="lazy"
 		/>

@@ -26,37 +26,37 @@ const onSwiper = (swiper: SwiperInstance) => {
 	>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif0.JPG"
+				src="../assets/img/sertif0.png"
 				alt="Sertificate"
 				class="img_sertificate"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif2.JPG"
+				src="../assets/img/sertif2.png"
 				alt="Sertificate"
 				class="img_sertificate"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif1.JPG"
+				src="../assets/img/sertif1.png"
 				alt="Sertificate"
 				class="img_sertificate"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif3.JPG"
+				src="../assets/img/sertif3.png"
 				alt="Sertificate"
 				class="img_sertificate"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif6.JPG"
+				src="../assets/img/sertif6.png"
 				alt="Sertificate"
 				class="img_sertificate"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif5.JPG"
+				src="../assets/img/sertif5.png"
 				alt="Sertificate"
 				class="img_sertificate"
 		/></swiper-slide>
