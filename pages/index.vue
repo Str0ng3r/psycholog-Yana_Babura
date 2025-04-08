@@ -1,9 +1,26 @@
 <script lang="ts" setup>
+import axios from 'axios';
+useSeoMeta({
+	title: 'Онлайн психолог Yana Babura | Консультации в Познани',
+	description:
+		'Онлайн-помощь психолога Yana Babura. Поддержка в кризисах, тревожности и выгорании. Игропрактика, консультации в Познани и онлайн.',
+	ogTitle: 'Психолог Yana Babura — Онлайн-консультации и приём в Познани',
+	ogDescription:
+		'Консультации с дипломированным психологом и игропрактиком. Онлайн и офлайн приём. Работа с тревогами, стрессами, самооценкой.',
+	ogImage: '/ogImage.JPG',
+	twitterCard: 'summary_large_image',
+	twitterTitle: 'Психолог Yana Babura — Онлайн и в Познани',
+	twitterDescription:
+		'Онлайн и офлайн консультации с психологом и игропрактиком. Поддержка при тревогах, стрессах и кризисах.',
+	twitterImage: '/ogImage.JPG',
+});
+
 const formSend = ref(false);
 const nameForm = ref('');
 const emailForm = ref('');
 const numberForm = ref('');
 const messageForm = ref('');
+const acceptService = ref('Обычная сессия');
 
 const submitForm = async () => {
 	const formData = new FormData();
@@ -11,6 +28,11 @@ const submitForm = async () => {
 	formData.append('email', emailForm.value);
 	formData.append('phone', numberForm.value);
 	formData.append('message', messageForm.value);
+	formData.append('service', acceptService.value);
+	await axios.post(
+		'https://67f3c545cbef97f40d2c03d8.mockapi.io/yana-babura/site/clients',
+		{ name: nameForm.value, email: emailForm.value, number: numberForm.value }
+	);
 
 	try {
 		const response = await fetch('https://formspree.io/f/xjkyepej', {
@@ -110,16 +132,19 @@ const serviceCards = [
 		title: 'Первичная диагностическая сессия 20 минут',
 		desc: ['БЕСПЛАТНО'],
 		icon: 'first_services',
+		value: 'Первичная диагностическая сессия 20 минут',
 	},
 	{
 		title: 'Индивидуальная сессия очно или онлайн 60 минут',
 		desc: ['180 zł'],
 		icon: 'second_services',
+		value: 'Индивидуальная сессия очно или онлайн 60 минут',
 	},
 	{
 		title: 'Пакет из 5 сессий со скидкой - 5% (5 сессий по 60мин)',
 		desc: ['850 zł'],
 		icon: 'three_services',
+		value: 'Пакет из 5 сессий',
 	},
 ];
 </script>
@@ -142,6 +167,7 @@ const serviceCards = [
 			alt="People psycholog Yana Babura"
 			class="photo_main_psycholog"
 			data-aos="fade-up"
+			loading="lazy"
 		/>
 	</section>
 	<section class="about_section">
@@ -149,6 +175,7 @@ const serviceCards = [
 			src="../assets/img/about_img.png"
 			alt="Photo sycholog Yana Babura"
 			class="img_about"
+			loading="lazy"
 		/>
 		<div class="wrap_about_info" id="about">
 			<h2>Меня зовут Яна, я дипломированный психолог и игропрактик.</h2>
@@ -157,7 +184,7 @@ const serviceCards = [
 				осуждения, без необходимости “соответствовать”, без чувства одиночества
 				перед своими переживаниями.
 			</h3>
-			<button>ЗАПИСАТЬСЯ</button>
+			<a href="#form_sender">ЗАПИСАТЬСЯ</a>
 		</div>
 	</section>
 	<section class="request_list">
@@ -171,13 +198,14 @@ const serviceCards = [
 				:desc="card.desc"
 			></CardServise>
 		</div>
-		<button class="button_requset">ЗАПИСАТЬСЯ</button>
+		<a href="#form_sender" class="button_requset">ЗАПИСАТЬСЯ</a>
 	</section>
 	<section class="how_work_section">
 		<img
 			src="../assets/img/img_how_work.png"
 			alt="Psycholog people Yana Babura behind table"
 			class="how_work__left_img"
+			loading="lazy"
 		/>
 		<div class="how_work__wrap_info">
 			<h2>Как я работаю:</h2>
@@ -195,7 +223,7 @@ const serviceCards = [
 				Эти методики помогут мягко, но глубоко увидеть скрытые сценарии изменить
 				ограничивающие установки и найти ответы внутри себя.
 			</p>
-			<button class="how_work__button">ЗАПИСАТЬСЯ</button>
+			<a class="how_work__button" href="#form_sender">ЗАПИСАТЬСЯ</a>
 		</div>
 	</section>
 	<section class="section_reviews">
@@ -209,12 +237,14 @@ const serviceCards = [
 			src="../assets/img/reviews_img.jpg"
 			alt="Psycholog speak with people"
 			class="section_reviews__right_img"
+			loading="lazy"
 		/>
 	</section>
 	<section class="section_stats">
 		<img
 			src="../assets/img/stats_img.jpg"
 			alt="Psycholog Yana Babura see in window"
+			loading="lazy"
 		/>
 		<p>8+ <span>Лет в психологии</span></p>
 		<p>2000+ <span>Часов практики</span></p>
@@ -230,6 +260,8 @@ const serviceCards = [
 				:title="card.title"
 				:desc="card.desc"
 				:button="true"
+				:value="card.value"
+				v-model="acceptService"
 			></CardServise>
 		</div>
 	</section>
@@ -241,6 +273,7 @@ const serviceCards = [
 		<img
 			src="../assets/img/form_img.png"
 			alt="Sycholog Yana Babura see in camera"
+			loading="lazy"
 		/>
 		<form class="form_reg" v-if="!formSend" @submit.prevent="submitForm">
 			<h2 class="form_reg__title">
@@ -275,6 +308,15 @@ const serviceCards = [
 					v-model="numberForm"
 				/>
 			</label>
+			<label class="service_label">
+				<input
+					type="text"
+					name="service"
+					required
+					placeholder="Какой пакет сессий вас интересует?"
+					v-model="acceptService"
+				/>
+			</label>
 			<label>
 				<textarea
 					name="message"
@@ -300,6 +342,9 @@ const serviceCards = [
 	font-weight: 400;
 	line-height: 5.5rem; /* 122.222% */
 	text-align: center;
+}
+.service_label {
+	display: none !important;
 }
 .form_reg {
 	display: flex;
@@ -337,12 +382,13 @@ const serviceCards = [
 			padding: 0.3rem;
 			background-color: transparent;
 			border: none;
-			color: #b87869;
+			color: #9b6559;
 			font-family: Jost;
 			font-size: 1.6rem;
 			font-weight: 400;
 			&::placeholder {
 				color: #b87869;
+				opacity: 0.8;
 				font-family: Jost;
 				font-size: 1.6rem;
 				font-weight: 400;
@@ -978,7 +1024,7 @@ const serviceCards = [
 			line-height: 2rem;
 		}
 	}
-	button {
+	a {
 		color: #fff;
 		font-family: Jost;
 		font-size: 1.4rem;

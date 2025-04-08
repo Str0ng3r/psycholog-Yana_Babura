@@ -6,7 +6,9 @@
 			<nuxt-icon name="Logo" filled class="icon_logotip"></nuxt-icon>
 			<p>Yana Babura</p>
 		</div>
-		<button class="button_header" data-aos="fade-left">Записаться</button>
+		<a class="button_header" data-aos="fade-left" href="#form_sender"
+			>Записаться</a
+		>
 	</header>
 </template>
 

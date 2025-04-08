@@ -4,7 +4,14 @@ const props = defineProps({
 	desc: Array,
 	icon: String,
 	button: Boolean,
+	value: String,
 });
+const emit = defineEmits(['update:modelValue']);
+
+const handleClick = () => {
+	emit('update:modelValue', props.value);
+	console.log('CLICK', props.value);
+};
 </script>
 
 <template>
@@ -12,7 +19,14 @@ const props = defineProps({
 		<nuxt-icon :name="icon" filled v-if="icon" class="icon_card"></nuxt-icon>
 		<h2>{{ title }}</h2>
 		<li v-for="item in desc">{{ item }}</li>
-		<button class="button_call" v-if="button">ЗАПИСАТЬСЯ</button>
+		<a
+			href="#form_sender"
+			class="button_call"
+			v-if="button"
+			@click="handleClick"
+		>
+			ЗАПИСАТЬСЯ
+		</a>
 	</div>
 </template>
 
@@ -27,7 +41,6 @@ const props = defineProps({
 	font-size: 1.4rem;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 3rem; /* 214.286% */
 	margin-top: 2rem;
 	@include mob {
 		padding: 1.4rem 2.6rem;
@@ -50,9 +63,6 @@ const props = defineProps({
 		padding: 1.4rem 2.6rem;
 		max-width: 26.8rem;
 	}
-	// @include mob {
-	// 	max-height: 26rem;
-	// }
 	.icon_card {
 		margin-bottom: 2rem;
 	}
@@ -65,11 +75,6 @@ const props = defineProps({
 		font-weight: 600;
 		line-height: 2.5rem; /* 156.25% */
 		margin-bottom: 2rem;
-		// @include mob {
-		// 	font-size: 1.4rem;
-		// 	line-height: 2rem;
-		// 	margin-bottom: 1.6rem;
-		// }
 	}
 	li {
 		color: #666;
@@ -79,10 +84,6 @@ const props = defineProps({
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.8rem; /* 138.462% */
-		// @include mob {
-		// 	font-size: 1rem;
-		// 	line-height: 1.4rem;
-		// }
 	}
 }
 </style>

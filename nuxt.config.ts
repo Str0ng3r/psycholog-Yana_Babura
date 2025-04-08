@@ -44,12 +44,46 @@ export default defineNuxtConfig({
 					content:
 						'психолог,психолог онлайн, психолог Познань, консультация психолога, семейный психолог, психолог для детей, стресс, депрессия, тревога, панические атаки, проблемы в отношениях, повышение самооценки, кризис, эмоциональное выгорание, фобии, коучинг, психотерапевт, психоанализ, когнитивно-поведенческая терапия, помощь при разводе, психолог для подростков, личностный рост',
 				},
+				{
+					property: 'og:title',
+					content:
+						'Психолог Yana Babura — Онлайн-консультации и приём в Познани',
+				},
+				{
+					property: 'og:description',
+					content:
+						'Консультации с дипломированным психологом и игропрактиком. Онлайн и офлайн приём. Работа с тревогами, стрессами, самооценкой.',
+				},
+				{
+					property: 'og:image',
+					content: '/ogImage.jpg', // как выше
+				},
+				{
+					property: 'og:type',
+					content: 'website',
+				},
+				{
+					property: 'og:url',
+					content: 'http://localhost:3000', // замени на свой реальный сайт
+				},
 			],
 			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 		},
 	},
+
 	plugins: [{ src: '~/plugins/aos.js', mode: 'client' }],
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxt/eslint', 'nuxt-icons'],
+	modules: ['@nuxt/eslint', 'nuxt-icons', '@nuxtjs/sitemap'],
+	sitemap: {
+		hostname: 'http://localhost:3000', // Укажи домен
+		routes: async () => {
+			return [
+				'/',
+				'/about',
+				'/uslugi',
+				'/kontakt', // перечисли все доступные URL
+			];
+		},
+	},
 });
