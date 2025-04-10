@@ -26,42 +26,42 @@ const onSwiper = (swiper: SwiperInstance) => {
 	>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif0.webp"
+				src="/img/sertif0.webp"
 				alt="Sertificate"
 				class="img_sertificate"
 				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif2.webp"
+				src="/img/sertif2.webp"
 				alt="Sertificate"
 				class="img_sertificate"
 				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif1.webp"
+				src="/img/sertif1.webp"
 				alt="Sertificate"
 				class="img_sertificate"
 				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif3.webp"
+				src="/img/sertif3.webp"
 				alt="Sertificate"
 				class="img_sertificate"
 				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif6.webp"
+				src="/img/sertif6.webp"
 				alt="Sertificate"
 				class="img_sertificate"
 				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif5.webp"
+				src="/img/sertif5.webp"
 				alt="Sertificate"
 				class="img_sertificate"
 				loading="lazy"

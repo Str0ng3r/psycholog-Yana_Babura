@@ -969,7 +969,7 @@ const serviceCards = [
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: url('../assets/img/background_main.webp') center no-repeat;
+	background: url('/img/background_main.webp') center no-repeat;
 	position: relative;
 	@include lap {
 		padding: 16rem 14rem 26rem 14rem;
