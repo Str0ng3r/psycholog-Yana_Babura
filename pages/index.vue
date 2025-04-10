@@ -168,26 +168,20 @@ const serviceCards = [
 				давайте сделаем его вместе.
 			</h3>
 		</div>
-		<NuxtImg
-			src="/img/mainphoto.webp"
+		<img
+			src="../assets/img/mainphoto.webp"
 			alt="People psycholog Yana Babura"
 			class="photo_main_psycholog"
 			data-aos="fade-up"
 			loading="eager"
-			width="620"
-			format="webp"
-			quality="100"
 		/>
 	</section>
 	<section class="about_section">
-		<NuxtImg
-			src="/img/about_img.webp"
+		<img
+			src="../assets/img/about_img.webp"
 			alt="Photo sycholog Yana Babura"
 			class="img_about"
 			loading="lazy"
-			width="800"
-			format="webp"
-			quality="100"
 		/>
 		<div class="wrap_about_info" id="about">
 			<h2>Меня зовут Яна, я дипломированный психолог и игропрактик.</h2>
@@ -213,13 +207,11 @@ const serviceCards = [
 		<a href="#form_sender" class="button_requset">ЗАПИСАТЬСЯ</a>
 	</section>
 	<section class="how_work_section">
-		<NuxtImg
-			src="/img/img_how_work.webp"
+		<img
+			src="../assets/img/img_how_work.webp"
 			alt="Psycholog people Yana Babura behind table"
 			class="how_work__left_img"
 			loading="lazy"
-			width="747"
-			quality="100"
 		/>
 		<div class="how_work__wrap_info">
 			<h2>Как я работаю:</h2>
@@ -247,22 +239,18 @@ const serviceCards = [
 				<SliderCards :reviews="reviewsArray"> </SliderCards>
 			</div>
 		</div>
-		<NuxtImg
-			src="/img/reviews_img.webp"
+		<img
+			src="../assets/img/reviews_img.webp"
 			alt="Psycholog speak with people"
 			class="section_reviews__right_img"
 			loading="lazy"
-			width="815"
-			quality="100"
 		/>
 	</section>
 	<section class="section_stats">
-		<NuxtImg
-			src="/img/stats_img.webp"
+		<img
+			src="../assets/img/stats_img.webp"
 			alt="Psycholog Yana Babura see in window"
 			loading="lazy"
-			width="260"
-			quality="100"
 		/>
 		<p>8+ <span>Лет в психологии</span></p>
 		<p>2000+ <span>Часов практики</span></p>
@@ -288,11 +276,10 @@ const serviceCards = [
 		<div class="wrap_for_slider"><Slider> </Slider></div>
 	</section>
 	<section class="section_form" id="form_sender">
-		<NuxtImg
-			src="/img/form_img.webp"
+		<img
+			src="../assets/img/form_img.webp"
 			alt="Sycholog Yana Babura see in camera"
 			loading="lazy"
-			quality="100"
 		/>
 		<form class="form_reg" v-if="!formSend" @submit.prevent="submitForm">
 			<h2 class="form_reg__title">
