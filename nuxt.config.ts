@@ -1,6 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	vite: {
+		optimizeDeps: {
+			include: ['date-fns', '@splinetool/runtime'],
+		},
+		build: {
+			minify: 'esbuild', // Быстрее и меньше
+			rollupOptions: {
+				treeshake: true,
+			},
+		},
 		assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif'],
 		css: {
 			preprocessorOptions: {
@@ -10,6 +19,7 @@ export default defineNuxtConfig({
 			},
 		},
 	},
+
 	imports: {
 		dirs: ['types/constants'],
 		presets: [
@@ -57,7 +67,7 @@ export default defineNuxtConfig({
 				},
 				{
 					property: 'og:image',
-					content: '/ogImage.jpg', // как выше
+					content: '/ogImage.webp', // как выше
 				},
 				{
 					property: 'og:type',
@@ -68,14 +78,21 @@ export default defineNuxtConfig({
 					content: 'https://online-psycholog-yanababura.com', // замени на свой реальный сайт
 				},
 			],
-			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+			link: [
+				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+				// {
+				// 	rel: 'preload',
+				// 	as: 'image',
+				// 	href: '/assets/img/mainphoto.webp', // путь относительно /public
+				// },
+			],
 		},
 	},
 
 	plugins: [{ src: '~/plugins/aos.js', mode: 'client' }],
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxt/eslint', 'nuxt-icons', '@nuxtjs/sitemap'],
+	modules: ['@nuxt/eslint', 'nuxt-icons', '@nuxtjs/sitemap', '@nuxt/image'],
 	sitemap: {
 		hostname: 'https://online-psycholog-yanababura.com', // Укажи домен
 		routes: async () => {

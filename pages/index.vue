@@ -7,14 +7,20 @@ useSeoMeta({
 	ogTitle: 'Психолог Yana Babura — Онлайн-консультации и приём в Познани',
 	ogDescription:
 		'Консультации с дипломированным психологом и игропрактиком. Онлайн и офлайн приём. Работа с тревогами, стрессами, самооценкой.',
-	ogImage: '/ogImage.JPG',
+	ogImage: '/ogImage.webp',
 	twitterCard: 'summary_large_image',
 	twitterTitle: 'Психолог Yana Babura — Онлайн и в Познани',
 	twitterDescription:
 		'Онлайн и офлайн консультации с психологом и игропрактиком. Поддержка при тревогах, стрессах и кризисах.',
-	twitterImage: '/ogImage.JPG',
+	twitterImage: '/ogImage.webp',
 });
-
+const Slider = defineAsyncComponent(() => import('~/components/Slider.vue'));
+const CardServise = defineAsyncComponent(
+	() => import('~/components/CardServise.vue')
+);
+const SliderCards = defineAsyncComponent(
+	() => import('~/components/SliderCards.vue')
+);
 const formSend = ref(false);
 const nameForm = ref('');
 const emailForm = ref('');
@@ -162,19 +168,26 @@ const serviceCards = [
 				давайте сделаем его вместе.
 			</h3>
 		</div>
-		<img
-			src="../assets/img/mainphoto.webp"
+		<NuxtImg
+			src="/img/mainphoto.webp"
 			alt="People psycholog Yana Babura"
 			class="photo_main_psycholog"
 			data-aos="fade-up"
+			loading="eager"
+			width="620"
+			format="webp"
+			quality="100"
 		/>
 	</section>
 	<section class="about_section">
-		<img
-			src="../assets/img/about_img.webp"
+		<NuxtImg
+			src="/img/about_img.webp"
 			alt="Photo sycholog Yana Babura"
 			class="img_about"
 			loading="lazy"
+			width="800"
+			format="webp"
+			quality="100"
 		/>
 		<div class="wrap_about_info" id="about">
 			<h2>Меня зовут Яна, я дипломированный психолог и игропрактик.</h2>
@@ -200,11 +213,13 @@ const serviceCards = [
 		<a href="#form_sender" class="button_requset">ЗАПИСАТЬСЯ</a>
 	</section>
 	<section class="how_work_section">
-		<img
-			src="../assets/img/img_how_work.webp"
+		<NuxtImg
+			src="/img/img_how_work.webp"
 			alt="Psycholog people Yana Babura behind table"
 			class="how_work__left_img"
 			loading="lazy"
+			width="747"
+			quality="100"
 		/>
 		<div class="how_work__wrap_info">
 			<h2>Как я работаю:</h2>
@@ -232,18 +247,22 @@ const serviceCards = [
 				<SliderCards :reviews="reviewsArray"> </SliderCards>
 			</div>
 		</div>
-		<img
-			src="../assets/img/reviews_img.webp"
+		<NuxtImg
+			src="/img/reviews_img.webp"
 			alt="Psycholog speak with people"
 			class="section_reviews__right_img"
 			loading="lazy"
+			width="815"
+			quality="100"
 		/>
 	</section>
 	<section class="section_stats">
-		<img
-			src="../assets/img/stats_img.webp"
+		<NuxtImg
+			src="/img/stats_img.webp"
 			alt="Psycholog Yana Babura see in window"
 			loading="lazy"
+			width="260"
+			quality="100"
 		/>
 		<p>8+ <span>Лет в психологии</span></p>
 		<p>2000+ <span>Часов практики</span></p>
@@ -269,10 +288,11 @@ const serviceCards = [
 		<div class="wrap_for_slider"><Slider> </Slider></div>
 	</section>
 	<section class="section_form" id="form_sender">
-		<img
-			src="../assets/img/form_img.webp"
+		<NuxtImg
+			src="/img/form_img.webp"
 			alt="Sycholog Yana Babura see in camera"
 			loading="lazy"
+			quality="100"
 		/>
 		<form class="form_reg" v-if="!formSend" @submit.prevent="submitForm">
 			<h2 class="form_reg__title">
