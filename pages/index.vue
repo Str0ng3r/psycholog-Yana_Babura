@@ -170,7 +170,7 @@ const serviceCards = [
 		</div>
 		<NuxtImg
 			src="/img/mainphoto.webp"
-			alt="People psycholog Yana Babura"
+			alt="Психолог Яна Бабура — главный снимок на главной странице"
 			class="photo_main_psycholog"
 			data-aos="fade-up"
 			loading="eager"
@@ -182,7 +182,7 @@ const serviceCards = [
 	<section class="about_section">
 		<NuxtImg
 			src="/img/about_img.webp"
-			alt="Photo sycholog Yana Babura"
+			alt="Яна Бабура в профессиональной обстановке"
 			class="img_about"
 			loading="lazy"
 			width="800"
@@ -215,7 +215,7 @@ const serviceCards = [
 	<section class="how_work_section">
 		<NuxtImg
 			src="/img/img_how_work.webp"
-			alt="Psycholog people Yana Babura behind table"
+			alt="Психолог Яна Бабура за столом во время сессии"
 			class="how_work__left_img"
 			loading="lazy"
 			width="747"
@@ -249,7 +249,7 @@ const serviceCards = [
 		</div>
 		<NuxtImg
 			src="/img/reviews_img.webp"
-			alt="Psycholog speak with people"
+			alt="Психолог Яна Бабура беседует с клиентом"
 			class="section_reviews__right_img"
 			loading="lazy"
 			width="815"
@@ -259,7 +259,7 @@ const serviceCards = [
 	<section class="section_stats">
 		<NuxtImg
 			src="/img/stats_img.webp"
-			alt="Psycholog Yana Babura see in window"
+			alt="Яна Бабура смотрит в окно"
 			loading="lazy"
 			width="260"
 			quality="100"
@@ -290,7 +290,7 @@ const serviceCards = [
 	<section class="section_form" id="form_sender">
 		<NuxtImg
 			src="/img/form_img.webp"
-			alt="Sycholog Yana Babura see in camera"
+			alt="Психолог Яна Бабура смотрит в камеру"
 			loading="lazy"
 			quality="100"
 		/>
