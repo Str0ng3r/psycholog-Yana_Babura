@@ -65,7 +65,7 @@ export default defineNuxtConfig({
 				},
 				{
 					property: 'og:url',
-					content: 'http://localhost:3000', // замени на свой реальный сайт
+					content: 'https://online-psycholog-yanababura.com', // замени на свой реальный сайт
 				},
 			],
 			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -77,7 +77,7 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: ['@nuxt/eslint', 'nuxt-icons', '@nuxtjs/sitemap'],
 	sitemap: {
-		hostname: 'http://localhost:3000', // Укажи домен
+		hostname: 'https://online-psycholog-yanababura.com', // Укажи домен
 		routes: async () => {
 			return [
 				'/',
