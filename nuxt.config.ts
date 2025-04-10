@@ -86,9 +86,6 @@ export default defineNuxtConfig({
 				// 	href: '/assets/img/mainphoto.webp', // путь относительно /public
 				// },
 			],
-			htmlAttrs: {
-				lang: 'ru',
-			},
 		},
 	},
 
