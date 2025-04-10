@@ -167,7 +167,6 @@ const serviceCards = [
 			alt="People psycholog Yana Babura"
 			class="photo_main_psycholog"
 			data-aos="fade-up"
-			loading="lazy"
 		/>
 	</section>
 	<section class="about_section">

@@ -26,39 +26,45 @@ const onSwiper = (swiper: SwiperInstance) => {
 	>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif0.png"
+				src="../assets/img/sertif0.webp"
 				alt="Sertificate"
 				class="img_sertificate"
+				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif2.png"
+				src="../assets/img/sertif2.webp"
 				alt="Sertificate"
 				class="img_sertificate"
+				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif1.png"
+				src="../assets/img/sertif1.webp"
 				alt="Sertificate"
 				class="img_sertificate"
+				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif3.png"
+				src="../assets/img/sertif3.webp"
 				alt="Sertificate"
 				class="img_sertificate"
+				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif6.png"
+				src="../assets/img/sertif6.webp"
 				alt="Sertificate"
 				class="img_sertificate"
+				loading="lazy"
 		/></swiper-slide>
 		<swiper-slide
 			><img
-				src="../assets/img/sertif5.png"
+				src="../assets/img/sertif5.webp"
 				alt="Sertificate"
 				class="img_sertificate"
+				loading="lazy"
 		/></swiper-slide>
 	</swiper>
 </template>
