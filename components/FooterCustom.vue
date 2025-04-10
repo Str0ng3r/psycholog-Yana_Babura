@@ -130,7 +130,7 @@ const submitMail = async () => {
 	}
 }
 footer {
-	background: url('../assets/img/back_footer.png') no-repeat center;
+	background: url('../assets/img/back_footer.webp') no-repeat center;
 	width: 100%;
 	padding: 6rem 15rem 2rem 15rem;
 	display: flex;

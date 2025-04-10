@@ -163,7 +163,7 @@ const serviceCards = [
 			</h3>
 		</div>
 		<img
-			src="../assets/img/mainphoto.png"
+			src="../assets/img/mainphoto.webp"
 			alt="People psycholog Yana Babura"
 			class="photo_main_psycholog"
 			data-aos="fade-up"
@@ -172,7 +172,7 @@ const serviceCards = [
 	</section>
 	<section class="about_section">
 		<img
-			src="../assets/img/about_img.png"
+			src="../assets/img/about_img.webp"
 			alt="Photo sycholog Yana Babura"
 			class="img_about"
 			loading="lazy"
@@ -202,7 +202,7 @@ const serviceCards = [
 	</section>
 	<section class="how_work_section">
 		<img
-			src="../assets/img/img_how_work.png"
+			src="../assets/img/img_how_work.webp"
 			alt="Psycholog people Yana Babura behind table"
 			class="how_work__left_img"
 			loading="lazy"
@@ -234,7 +234,7 @@ const serviceCards = [
 			</div>
 		</div>
 		<img
-			src="../assets/img/reviews_img.png"
+			src="../assets/img/reviews_img.webp"
 			alt="Psycholog speak with people"
 			class="section_reviews__right_img"
 			loading="lazy"
@@ -242,7 +242,7 @@ const serviceCards = [
 	</section>
 	<section class="section_stats">
 		<img
-			src="../assets/img/stats_img.png"
+			src="../assets/img/stats_img.webp"
 			alt="Psycholog Yana Babura see in window"
 			loading="lazy"
 		/>
@@ -271,7 +271,7 @@ const serviceCards = [
 	</section>
 	<section class="section_form" id="form_sender">
 		<img
-			src="../assets/img/form_img.png"
+			src="../assets/img/form_img.webp"
 			alt="Sycholog Yana Babura see in camera"
 			loading="lazy"
 		/>
@@ -950,7 +950,7 @@ const serviceCards = [
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: url('../assets/img/background_main.png') center no-repeat;
+	background: url('../assets/img/background_main.webp') center no-repeat;
 	position: relative;
 	@include lap {
 		padding: 16rem 14rem 26rem 14rem;
