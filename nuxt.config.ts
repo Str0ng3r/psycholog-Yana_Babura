@@ -92,7 +92,7 @@ export default defineNuxtConfig({
 	plugins: [{ src: '~/plugins/aos.js', mode: 'client' }],
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxt/eslint', 'nuxt-icons', '@nuxtjs/sitemap'],
+	modules: ['@nuxt/eslint', 'nuxt-icons', '@nuxtjs/sitemap', '@nuxt/image'],
 	sitemap: {
 		hostname: 'https://online-psycholog-yanababura.com', // Укажи домен
 		routes: async () => {
